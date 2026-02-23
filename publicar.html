@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Publicar propiedad | Inmobiliaria Pérez Araujo</title>
+  <link rel="icon" type="image/png" href="image/logo/PerezAraujoLogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo-link" aria-label="Inicio">
+      <img src="image/logo/PerezAraujoLogo.png" alt="Inmobiliaria Pérez Araujo" class="logo">
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="publicar.html" aria-current="page">Publicar</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="main main-form">
+    <section class="hero hero-chico">
+      <h1>Publicar propiedad</h1>
+      <p>Completa los datos y te llevamos a WhatsApp para que nos envíes tu aviso.</p>
+    </section>
+
+    <form class="form-publicar" id="form-publicar">
+      <label class="label">Título del aviso *</label>
+      <input type="text" name="titulo" class="input" placeholder="Ej: Casa 3 habitaciones con jardín" required>
+
+      <label class="label">Tipo *</label>
+      <select name="tipo" class="input" required>
+        <option value="">Seleccione</option>
+        <option value="venta">Venta</option>
+        <option value="arriendo">Arriendo</option>
+      </select>
+
+      <label class="label">Ciudad *</label>
+      <input type="text" name="ciudad" class="input" placeholder="Ej: Medellín" required list="list-ciudad">
+      <datalist id="list-ciudad">
+        <option value="Medellín">
+        <option value="Bogotá">
+        <option value="Cali">
+        <option value="Envigado">
+        <option value="Bello">
+        <option value="Itagüí">
+      </datalist>
+
+      <label class="label">Municipio</label>
+      <input type="text" name="municipio" class="input" placeholder="Ej: Medellín">
+
+      <label class="label">Corregimiento / Barrio</label>
+      <input type="text" name="corregimiento" class="input" placeholder="Ej: San Javier">
+
+      <label class="label">Precio (opcional)</label>
+      <input type="text" name="precio" class="input" placeholder="Ej: 150.000.000 o 1.200.000/mes">
+
+      <label class="label">Descripción *</label>
+      <textarea name="descripcion" class="input input-area" rows="4" placeholder="Breve descripción de la propiedad..." required></textarea>
+
+      <label class="label">Tu nombre *</label>
+      <input type="text" name="nombre" class="input" required>
+
+      <label class="label">Tu teléfono o WhatsApp *</label>
+      <input type="tel" name="telefono" class="input" placeholder="Ej: 300 123 4567" required>
+
+      <p class="form-nota">Al enviar se abrirá WhatsApp con un mensaje listo. Envíalo para que publiquemos tu aviso.</p>
+      <button type="submit" class="btn btn-enviar">Enviar por WhatsApp</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <img src="image/logo/PerezAraujoLogo.png" alt="" class="footer-logo" width="160" height="80">
+    <p>© Inmobiliaria Pérez Araujo</p>
+  </footer>
+
+  <script src="js/publicar.js"></script>
+</body>
+</html>

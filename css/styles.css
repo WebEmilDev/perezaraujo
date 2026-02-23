@@ -1,0 +1,451 @@
+/* Inmobiliaria Pérez Araujo - Mobile first, negro y dorado */
+
+:root {
+  --negro: #0a0a0a;
+  --negro-suave: #1a1a1a;
+  --dorado: #c9a227;
+  --dorado-claro: #e5c76b;
+  --dorado-oscuro: #9a7b1a;
+  --blanco: #f5f5f5;
+  --gris: #888;
+  --touch-min: 44px;
+  --radio: 8px;
+  --sombra: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  background: var(--negro);
+  color: var(--blanco);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--dorado);
+  text-decoration: none;
+}
+a:hover, a:focus-visible {
+  color: var(--dorado-claro);
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--negro);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.logo-link {
+  flex-shrink: 0;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+.logo {
+  max-height: 160px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 16px;
+  border: 3px solid var(--dorado);
+  box-shadow:
+    inset 0 2px 0 rgba(233, 199, 107, 0.5),
+    inset 0 -2px 0 var(--dorado-oscuro),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(201, 162, 39, 0.3);
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.nav a {
+  padding: 0.5rem 0.75rem;
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 1rem;
+  padding-bottom: 5rem;
+}
+.main-form {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 1.5rem 0 2rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+}
+.hero h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.75rem;
+  color: var(--dorado);
+  margin: 0 0 0.5rem;
+}
+.hero p {
+  margin: 0;
+  color: var(--gris);
+  font-size: 1rem;
+}
+.hero-chico .hero h1 { font-size: 1.5rem; }
+.hero-chico { padding: 1rem 0 1.5rem; }
+
+/* Buscar / Filtros */
+.buscar {
+  margin-bottom: 1.5rem;
+}
+.buscar h2,
+.listado h2,
+.contacto h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+  color: var(--dorado);
+  margin: 0 0 1rem;
+}
+
+.filtros {
+  display: grid;
+  gap: 0.75rem;
+}
+.label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blanco);
+}
+.input {
+  width: 100%;
+  min-height: var(--touch-min);
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--blanco);
+  background: var(--negro-suave);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: var(--radio);
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c9a227' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.25rem;
+}
+select.input {
+  cursor: pointer;
+}
+input.input {
+  background-image: none;
+  padding-right: 0.75rem;
+}
+.input::placeholder {
+  color: var(--gris);
+}
+.input:focus {
+  outline: 2px solid var(--dorado);
+  outline-offset: 2px;
+}
+
+.input-area {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.btn {
+  min-height: var(--touch-min);
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--negro);
+  background: var(--dorado);
+  border: none;
+  border-radius: var(--radio);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover, .btn:focus-visible {
+  background: var(--dorado-claro);
+  color: var(--negro);
+  outline: none;
+}
+.btn-buscar {
+  margin-top: 0.25rem;
+}
+
+/* Listado propiedades */
+.resultados-info {
+  font-size: 0.9rem;
+  color: var(--gris);
+  margin: -0.5rem 0 1rem;
+}
+
+.grid-propiedades {
+  display: grid;
+  gap: 1rem;
+}
+
+.tarjeta {
+  background: var(--negro-suave);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+.tarjeta-imagen {
+  aspect-ratio: 16/10;
+  background: var(--negro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gris);
+  font-size: 2.5rem;
+}
+.tarjeta-cuerpo {
+  padding: 1rem;
+}
+.tarjeta-tipo {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dorado);
+  margin-bottom: 0.25rem;
+}
+.tarjeta-titulo {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  color: var(--blanco);
+}
+.tarjeta-ubicacion {
+  font-size: 0.9rem;
+  color: var(--gris);
+  margin-bottom: 0.5rem;
+}
+.tarjeta-precio {
+  font-weight: 700;
+  color: var(--dorado);
+  margin-bottom: 1rem;
+}
+.tarjeta .btn {
+  width: 100%;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.sin-resultados {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--gris);
+}
+.sin-resultados .btn {
+  margin-top: 1rem;
+}
+
+/* Contacto */
+.contacto {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
+}
+.contacto-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.contacto-item {
+  min-height: var(--touch-min);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: var(--radio);
+}
+.contacto-item:hover, .contacto-item:focus-visible {
+  color: var(--dorado-claro);
+  text-decoration: none;
+  background: rgba(201, 162, 39, 0.1);
+}
+.contacto-item .icon {
+  font-size: 1.25rem;
+  width: 2rem;
+  text-align: center;
+}
+.contacto-whatsapp {
+  color: var(--dorado);
+  font-weight: 600;
+}
+
+/* FAB WhatsApp */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
+  z-index: 20;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.fab-whatsapp span {
+  font-size: 0;
+  line-height: 0;
+}
+.fab-whatsapp::after {
+  content: "💬";
+  font-size: 1.75rem;
+}
+.fab-whatsapp:hover, .fab-whatsapp:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Footer */
+.footer {
+  background: var(--negro-suave);
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+.footer-logo {
+  max-height: 140px;
+  width: auto;
+  margin: 0 auto 0.75rem;
+  opacity: 0.9;
+  display: block;
+  border-radius: 16px;
+  border: 3px solid var(--dorado);
+  box-shadow:
+    inset 0 2px 0 rgba(233, 199, 107, 0.5),
+    inset 0 -2px 0 var(--dorado-oscuro),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(201, 162, 39, 0.3);
+}
+.footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--gris);
+}
+
+/* Form publicar */
+.form-publicar {
+  display: grid;
+  gap: 0.75rem;
+}
+.form-publicar .label { margin-bottom: 0; }
+.form-nota {
+  font-size: 0.9rem;
+  color: var(--gris);
+  margin: 0.5rem 0 0;
+}
+.btn-enviar {
+  margin-top: 0.5rem;
+}
+
+/* Tablet y desktop */
+@media (min-width: 600px) {
+  .header {
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+  }
+  .header .nav {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .logo {
+    max-height: 140px;
+  }
+  .main {
+    padding: 1.5rem 2rem 6rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hero h1 { font-size: 2rem; }
+  .grid-propiedades {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .filtros {
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+  }
+  .filtros .label { grid-column: span 1; }
+  .filtros .input { grid-column: span 1; }
+  .filtros #filtro-ciudad { grid-column: 1; }
+  .filtros #filtro-municipio { grid-column: 2; }
+  .filtros #filtro-corregimiento { grid-column: 1; }
+  .filtros #filtro-tipo { grid-column: 2; }
+  .filtros .btn-buscar { grid-column: 1 / -1; max-width: 12rem; }
+}
+
+@media (min-width: 900px) {
+  .logo {
+    max-height: 160px;
+  }
+  .footer-logo {
+    max-height: 130px;
+  }
+  .grid-propiedades {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

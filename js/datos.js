@@ -9,7 +9,7 @@ window.PROPIEDADES = [
     municipio: "Medellín",
     precio: "$ 180.000.000",
     descripcion: "Casa amplia, zona tranquila, cerca a transporte.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ window.PROPIEDADES = [
     municipio: "Envigado",
     precio: "$ 1.200.000 / mes",
     descripcion: "Apartamento amoblado, conjunto con portería.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ window.PROPIEDADES = [
     municipio: "Medellín",
     precio: "$ 45.000.000",
     descripcion: "Lote plano, servicios cercanos.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ window.PROPIEDADES = [
     municipio: "La Estrella",
     precio: "$ 2.500.000 / mes",
     descripcion: "Casa campestre con zona verde.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ window.PROPIEDADES = [
     municipio: "Medellín",
     precio: "$ 850.000 / mes",
     descripcion: "Apartaestudio cerca al metro.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ window.PROPIEDADES = [
     municipio: "Bello",
     precio: "$ 220.000.000",
     descripcion: "Casa en conjunto cerrado.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   },
   {
     id: 7,
@@ -69,7 +69,7 @@ window.PROPIEDADES = [
     municipio: "Itagüí",
     precio: "$ 1.800.000 / mes",
     descripcion: "Local en vía principal.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   },
   {
     id: 8,
@@ -79,6 +79,6 @@ window.PROPIEDADES = [
     municipio: "Medellín",
     precio: "$ 350.000.000",
     descripcion: "Finca con vista, vía pavimentada.",
-    imagen: null
+    imagen: "image/Casas/Diseno-casa-campestre-La-Morada-1.jpg"
   }
 ];

@@ -131,6 +131,77 @@ a:hover, a:focus-visible {
 .hero-chico .hero h1 { font-size: 1.5rem; }
 .hero-chico { padding: 1rem 0 1.5rem; }
 
+/* Banner Festival Vallenato */
+.banner-festival {
+  margin: 1rem 0 1.5rem;
+  border-radius: 999px;
+  padding: 0.5rem 0;
+  background:
+    linear-gradient(120deg, #ff9a3c, #ff4b5c, #ffd460, #52c7ff, #7bff9e, #ff9a3c);
+  background-size: 300% 300%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  position: relative;
+}
+.banner-festival::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.92);
+}
+.banner-festival__inner {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 100%;
+  will-change: transform;
+  animation: banner-festival-scroll 24s linear infinite;
+}
+.banner-festival__tag {
+  display: inline-block;
+  margin-right: 1.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--dorado-claro), var(--dorado-oscuro));
+  color: var(--negro);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.banner-festival__text {
+  display: inline-block;
+  color: var(--blanco);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@keyframes banner-festival-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes banner-festival-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.banner-festival {
+  animation: banner-festival-bg 18s ease-in-out infinite;
+}
+
 /* Buscar / Filtros */
 .buscar {
   margin-bottom: 1.5rem;

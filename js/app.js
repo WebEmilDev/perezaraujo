@@ -33,10 +33,27 @@
   }
 
   function filtrarPropiedades(propiedades, filtros) {
+    var mapa = window.CO_DEPARTAMENTOS || null;
+
     return propiedades.filter(function (p) {
-      if (filtros.ciudad && p.ciudad !== filtros.ciudad) return false;
+      var departamentoSel = filtros.ciudad; // aquí el select de "Departamento"
+
+      // Si hay departamento seleccionado y tenemos mapa, filtramos por los municipios de ese departamento
+      if (departamentoSel && mapa) {
+        var municipiosDepto = mapa[departamentoSel] || [];
+
+        // Si no hay municipio seleccionado, aceptamos solo los que pertenezcan a ese departamento
+        if (!filtros.municipio) {
+          if (municipiosDepto.indexOf(p.municipio) === -1) return false;
+        }
+      }
+
+      // Si hay municipio seleccionado, se filtra directamente por municipio
       if (filtros.municipio && p.municipio !== filtros.municipio) return false;
+
+      // Filtro por tipo (venta/arriendo)
       if (filtros.tipo && p.tipo !== filtros.tipo) return false;
+
       return true;
     });
   }
@@ -55,8 +72,16 @@
 
     var div = document.createElement('article');
     div.className = 'tarjeta';
+    var imagenHtml;
+    if (p.imagen) {
+      imagenHtml =
+        '<div class="tarjeta-imagen"><img src="' + escapeAttr(p.imagen) + '" alt="' + escapeHtml(p.titulo) + '"></div>';
+    } else {
+      imagenHtml = '<div class="tarjeta-imagen">🏠</div>';
+    }
+
     div.innerHTML =
-      '<div class="tarjeta-imagen">🏠</div>' +
+      imagenHtml +
       '<div class="tarjeta-cuerpo">' +
         '<div class="tarjeta-tipo">' + (p.tipo === 'venta' ? 'Venta' : 'Arriendo') + '</div>' +
         '<h3 class="tarjeta-titulo">' + escapeHtml(p.titulo) + '</h3>' +
@@ -142,15 +167,53 @@
     }
   }
 
+  // Inicializa selects de Departamento y Municipio usando JSON de Colombia
+  function initDepartamentosMunicipios() {
+    var dptoSelect = document.getElementById('filtro-ciudad'); // representa Departamento
+    var munSelect = document.getElementById('filtro-municipio');
+
+    if (!dptoSelect || !munSelect) return;
+
+    function aplicarMapa(mapa) {
+      window.CO_DEPARTAMENTOS = mapa;
+      var departamentos = Object.keys(mapa).sort();
+      llenarSelect('filtro-ciudad', departamentos, 'Todos los departamentos');
+
+      function actualizarMunicipiosPorDepto() {
+        var dpto = dptoSelect.value;
+        var municipios = dpto ? (mapa[dpto] || []) : [];
+        llenarSelect('filtro-municipio', municipios, 'Todos los municipios');
+      }
+
+      dptoSelect.addEventListener('change', actualizarMunicipiosPorDepto);
+      // Estado inicial: sin municipio seleccionado
+      llenarSelect('filtro-municipio', [], 'Todos los municipios');
+    }
+
+    // Si ya tenemos el mapa cargado (por ejemplo desde otro script), lo usamos
+    if (window.CO_DEPARTAMENTOS) {
+      aplicarMapa(window.CO_DEPARTAMENTOS);
+      return;
+    }
+
+    // Si tenemos la lista completa en JS (colombia-data.js), la convertimos a mapa
+    if (window.CO_DEPARTAMENTOS_LIST && Array.isArray(window.CO_DEPARTAMENTOS_LIST)) {
+      var mapa = {};
+      window.CO_DEPARTAMENTOS_LIST.forEach(function (item) {
+        if (!item || !item.departamento) return;
+        mapa[item.departamento] = item.ciudades || [];
+      });
+      aplicarMapa(mapa);
+      return;
+    }
+
+    // Si nada de lo anterior existe, no hacemos nada (evita errores en local)
+  }
+
   function init() {
     var propiedades = window.PROPIEDADES || [];
-    var ciudades = extraerValoresUnicos(propiedades, 'ciudad');
-    var municipios = extraerValoresUnicos(propiedades, 'municipio');
-
-    llenarSelect('filtro-ciudad', ciudades, 'Todas las ciudades');
-    llenarSelect('filtro-municipio', municipios, 'Todos los municipios');
-
-    initFiltrosCascada();
+    // Ahora usamos el mapa de departamentos/municipios si está disponible
+    initDepartamentosMunicipios();
     actualizarListado(propiedades);
     initWhatsApp();
 

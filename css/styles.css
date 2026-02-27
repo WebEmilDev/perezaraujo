@@ -78,12 +78,12 @@ a:hover, a:focus-visible {
   margin: 0 auto;
   display: block;
   border-radius: 16px;
-  border: 3px solid var(--dorado);
+  border: 2px solid #1a1a1a;
   box-shadow:
-    inset 0 2px 0 rgba(233, 199, 107, 0.5),
-    inset 0 -2px 0 var(--dorado-oscuro),
-    0 4px 12px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(201, 162, 39, 0.3);
+    0 8px 24px rgba(0, 0, 0, 0.7),
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    -2px -2px 8px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .nav {
@@ -358,6 +358,78 @@ input.input {
   text-decoration: none;
 }
 
+/* Botón instalar app (Android / navegadores que soportan PWA) */
+.install-btn {
+  position: fixed;
+  top: 0.75rem;
+  right: 1.25rem;
+  min-height: 32px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--dorado-claro), var(--dorado-oscuro));
+  color: var(--negro);
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+}
+.install-btn:hover,
+.install-btn:focus-visible {
+  background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+  color: var(--negro);
+  outline: none;
+}
+
+/* Banner instrucciones iOS */
+.ios-install-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(circle at top, rgba(229, 199, 107, 0.35), rgba(10, 10, 10, 0.98));
+  border-bottom: 1px solid rgba(229, 199, 107, 0.5);
+  color: var(--blanco);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-out;
+  z-index: 30;
+  font-size: 0.85rem;
+}
+.ios-install-banner--show {
+  transform: translateY(0);
+}
+.ios-install-banner__content {
+  max-width: 80%;
+}
+.ios-install-banner__title {
+  margin: 0 0 0.25rem;
+  font-weight: 700;
+  color: var(--dorado-claro);
+}
+.ios-install-banner__steps {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.ios-install-banner__steps li {
+  margin-bottom: 0.15rem;
+}
+.ios-install-banner__close {
+  border: none;
+  background: transparent;
+  color: var(--blanco);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+}
+
 /* Footer */
 .footer {
   background: var(--negro-suave);
@@ -372,12 +444,12 @@ input.input {
   opacity: 0.9;
   display: block;
   border-radius: 16px;
-  border: 3px solid var(--dorado);
+  border: 2px solid #1a1a1a;
   box-shadow:
-    inset 0 2px 0 rgba(233, 199, 107, 0.5),
-    inset 0 -2px 0 var(--dorado-oscuro),
-    0 4px 12px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(201, 162, 39, 0.3);
+    0 8px 24px rgba(0, 0, 0, 0.7),
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    -2px -2px 8px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 .footer p {
   margin: 0;
@@ -433,8 +505,7 @@ input.input {
   .filtros .input { grid-column: span 1; }
   .filtros #filtro-ciudad { grid-column: 1; }
   .filtros #filtro-municipio { grid-column: 2; }
-  .filtros #filtro-corregimiento { grid-column: 1; }
-  .filtros #filtro-tipo { grid-column: 2; }
+  .filtros #filtro-tipo { grid-column: 1; }
   .filtros .btn-buscar { grid-column: 1 / -1; max-width: 12rem; }
 }
 

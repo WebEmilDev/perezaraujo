@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var WHATSAPP_NUMERO = '573202186192'; // Colombia sin +
+  var WHATSAPP_NUMERO = '573146714084'; // Colombia sin +
 
   function getWhatsAppUrl(mensaje) {
     return 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(mensaje);
@@ -36,7 +36,6 @@
     return propiedades.filter(function (p) {
       if (filtros.ciudad && p.ciudad !== filtros.ciudad) return false;
       if (filtros.municipio && p.municipio !== filtros.municipio) return false;
-      if (filtros.corregimiento && p.corregimiento !== filtros.corregimiento) return false;
       if (filtros.tipo && p.tipo !== filtros.tipo) return false;
       return true;
     });
@@ -44,7 +43,6 @@
 
   function ubicacionTexto(p) {
     var partes = [];
-    if (p.corregimiento) partes.push(p.corregimiento);
     if (p.municipio && p.municipio !== p.ciudad) partes.push(p.municipio);
     if (p.ciudad) partes.push(p.ciudad);
     return partes.length ? partes.join(', ') : 'Sin ubicación';
@@ -102,13 +100,11 @@
     var propiedades = window.PROPIEDADES || [];
     var ciudad = document.getElementById('filtro-ciudad');
     var municipio = document.getElementById('filtro-municipio');
-    var corregimiento = document.getElementById('filtro-corregimiento');
     var tipo = document.getElementById('filtro-tipo');
 
     var filtros = {
       ciudad: ciudad ? ciudad.value : '',
       municipio: municipio ? municipio.value : '',
-      corregimiento: corregimiento ? corregimiento.value : '',
       tipo: tipo ? tipo.value : ''
     };
 
@@ -119,7 +115,6 @@
   function initFiltrosCascada() {
     var ciudad = document.getElementById('filtro-ciudad');
     var municipio = document.getElementById('filtro-municipio');
-    var corregimiento = document.getElementById('filtro-corregimiento');
     var propiedades = window.PROPIEDADES || [];
 
     function actualizarMunicipios() {
@@ -128,21 +123,9 @@
       var munOpts = extraerValoresUnicos(sub, 'municipio');
       llenarSelect('filtro-municipio', munOpts, 'Todos los municipios');
       if (municipio) municipio.value = '';
-      actualizarCorregimientos();
-    }
-    function actualizarCorregimientos() {
-      var ciudadVal = ciudad ? ciudad.value : '';
-      var munVal = municipio ? municipio.value : '';
-      var base = propiedades;
-      if (ciudadVal) base = base.filter(function (p) { return p.ciudad === ciudadVal; });
-      if (munVal) base = base.filter(function (p) { return p.municipio === munVal; });
-      var corrOpts = extraerValoresUnicos(base, 'corregimiento');
-      llenarSelect('filtro-corregimiento', corrOpts, 'Todos los corregimientos');
-      if (corregimiento) corregimiento.value = '';
     }
 
     if (ciudad) ciudad.addEventListener('change', actualizarMunicipios);
-    if (municipio) municipio.addEventListener('change', actualizarCorregimientos);
   }
 
   function initWhatsApp() {
@@ -163,11 +146,9 @@
     var propiedades = window.PROPIEDADES || [];
     var ciudades = extraerValoresUnicos(propiedades, 'ciudad');
     var municipios = extraerValoresUnicos(propiedades, 'municipio');
-    var corregimientos = extraerValoresUnicos(propiedades, 'corregimiento');
 
     llenarSelect('filtro-ciudad', ciudades, 'Todas las ciudades');
     llenarSelect('filtro-municipio', municipios, 'Todos los municipios');
-    llenarSelect('filtro-corregimiento', corregimientos, 'Todos los corregimientos');
 
     initFiltrosCascada();
     actualizarListado(propiedades);

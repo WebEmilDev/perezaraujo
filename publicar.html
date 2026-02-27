@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pérez Araujo">
   <title>Publicar propiedad | Inmobiliaria Pérez Araujo</title>
   <link rel="icon" type="image/png" href="image/logo/PerezAraujoLogo.png">
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -54,9 +58,6 @@
       <label class="label">Municipio</label>
       <input type="text" name="municipio" class="input" placeholder="Ej: Medellín">
 
-      <label class="label">Corregimiento / Barrio</label>
-      <input type="text" name="corregimiento" class="input" placeholder="Ej: San Javier">
-
       <label class="label">Precio (opcional)</label>
       <input type="text" name="precio" class="input" placeholder="Ej: 150.000.000 o 1.200.000/mes">
 
@@ -79,6 +80,23 @@
     <p>© Inmobiliaria Pérez Araujo</p>
   </footer>
 
+  <div class="ios-install-banner" id="ios-install-banner" aria-hidden="true">
+    <div class="ios-install-banner__content">
+      <p class="ios-install-banner__title">Para instalar esta app en tu iPhone:</p>
+      <ol class="ios-install-banner__steps">
+        <li>Toca el botón <span aria-hidden="true">Compartir ⬆️</span> en Safari.</li>
+        <li>Elige <strong>Añadir a pantalla de inicio</strong>.</li>
+        <li>Confirma tocando <strong>Añadir</strong>.</li>
+      </ol>
+    </div>
+    <button type="button" class="ios-install-banner__close" data-ios-banner-close>Cerrar</button>
+  </div>
+
+  <button type="button" class="install-btn" id="install-btn" aria-label="Instalar aplicación">
+    Instalar app
+  </button>
+
   <script src="js/publicar.js"></script>
+  <script src="js/pwa.js"></script>
 </body>
 </html>

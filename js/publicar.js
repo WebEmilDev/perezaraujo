@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var WHATSAPP_NUMERO = '573202186192';
+  var WHATSAPP_NUMERO = '573146714084';
 
   function getWhatsAppUrl(mensaje) {
     return 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(mensaje);
@@ -13,7 +13,6 @@
     var tipo = datos.get('tipo') || '';
     var ciudad = (datos.get('ciudad') || '').trim();
     var municipio = (datos.get('municipio') || '').trim();
-    var corregimiento = (datos.get('corregimiento') || '').trim();
     var precio = (datos.get('precio') || '').trim();
     var descripcion = (datos.get('descripcion') || '').trim();
     var nombre = (datos.get('nombre') || '').trim();
@@ -26,7 +25,6 @@
       '*Tipo:* ' + (tipo === 'venta' ? 'Venta' : 'Arriendo'),
       '*Ciudad:* ' + ciudad,
       '*Municipio:* ' + (municipio || '-'),
-      '*Corregimiento/Barrio:* ' + (corregimiento || '-'),
       '*Precio:* ' + (precio || 'A convenir'),
       '',
       '*Descripción:*',

@@ -1,4 +1,4 @@
-/* Datos de ejemplo: propiedades con ciudad, municipio y corregimiento */
+/* Datos de ejemplo: propiedades con ciudad y municipio */
 
 window.PROPIEDADES = [
   {
@@ -7,7 +7,6 @@ window.PROPIEDADES = [
     tipo: "venta",
     ciudad: "Medellín",
     municipio: "Medellín",
-    corregimiento: "San Javier",
     precio: "$ 180.000.000",
     descripcion: "Casa amplia, zona tranquila, cerca a transporte.",
     imagen: null
@@ -18,18 +17,16 @@ window.PROPIEDADES = [
     tipo: "arriendo",
     ciudad: "Medellín",
     municipio: "Envigado",
-    corregimiento: "Zona Norte",
     precio: "$ 1.200.000 / mes",
     descripcion: "Apartamento amoblado, conjunto con portería.",
     imagen: null
   },
   {
     id: 3,
-    titulo: "Lote en corregimiento",
+    titulo: "Lote",
     tipo: "venta",
     ciudad: "Medellín",
     municipio: "Medellín",
-    corregimiento: "San Antonio de Prado",
     precio: "$ 45.000.000",
     descripcion: "Lote plano, servicios cercanos.",
     imagen: null
@@ -40,7 +37,6 @@ window.PROPIEDADES = [
     tipo: "arriendo",
     ciudad: "Medellín",
     municipio: "La Estrella",
-    corregimiento: "La Estrella",
     precio: "$ 2.500.000 / mes",
     descripcion: "Casa campestre con zona verde.",
     imagen: null
@@ -51,7 +47,6 @@ window.PROPIEDADES = [
     tipo: "arriendo",
     ciudad: "Medellín",
     municipio: "Medellín",
-    corregimiento: "Buenos Aires",
     precio: "$ 850.000 / mes",
     descripcion: "Apartaestudio cerca al metro.",
     imagen: null
@@ -62,7 +57,6 @@ window.PROPIEDADES = [
     tipo: "venta",
     ciudad: "Bello",
     municipio: "Bello",
-    corregimiento: "Niquía",
     precio: "$ 220.000.000",
     descripcion: "Casa en conjunto cerrado.",
     imagen: null
@@ -73,18 +67,16 @@ window.PROPIEDADES = [
     tipo: "arriendo",
     ciudad: "Medellín",
     municipio: "Itagüí",
-    corregimiento: "Itagüí",
     precio: "$ 1.800.000 / mes",
     descripcion: "Local en vía principal.",
     imagen: null
   },
   {
     id: 8,
-    titulo: "Finca en corregimiento",
+    titulo: "Finca",
     tipo: "venta",
     ciudad: "Medellín",
     municipio: "Medellín",
-    corregimiento: "Santa Elena",
     precio: "$ 350.000.000",
     descripcion: "Finca con vista, vía pavimentada.",
     imagen: null

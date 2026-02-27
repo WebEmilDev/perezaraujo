@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pérez Araujo">
   <title>Inmobiliaria Pérez Araujo | Venta y arriendo</title>
   <link rel="icon" type="image/png" href="image/logo/PerezAraujoLogo.png">
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,7 +30,7 @@
   <main class="main">
     <section class="hero">
       <h1>Encuentra tu próximo hogar</h1>
-      <p>Venta y arriendo por ciudad, municipio y corregimiento</p>
+      <p>Venta y arriendo por ciudad y municipio</p>
     </section>
 
     <section class="buscar" aria-label="Buscar propiedades">
@@ -39,10 +43,6 @@
         <label class="label">Municipio</label>
         <select name="municipio" id="filtro-municipio" class="input">
           <option value="">Todos los municipios</option>
-        </select>
-        <label class="label">Corregimiento</label>
-        <select name="corregimiento" id="filtro-corregimiento" class="input">
-          <option value="">Todos los corregimientos</option>
         </select>
         <label class="label">Tipo</label>
         <select name="tipo" id="filtro-tipo" class="input">
@@ -87,11 +87,27 @@
         </a>
         <a href="#" class="contacto-item contacto-whatsapp" id="link-whatsapp-contacto" aria-label="WhatsApp">
           <span class="icon" aria-hidden="true">💬</span>
-          <span>320 218 6192</span>
+          <span>314 671 4084</span>
         </a>
       </div>
     </section>
   </main>
+
+  <div class="ios-install-banner" id="ios-install-banner" aria-hidden="true">
+    <div class="ios-install-banner__content">
+      <p class="ios-install-banner__title">Para instalar esta app en tu iPhone:</p>
+      <ol class="ios-install-banner__steps">
+        <li>Toca el botón <span aria-hidden="true">Compartir ⬆️</span> en Safari.</li>
+        <li>Elige <strong>Añadir a pantalla de inicio</strong>.</li>
+        <li>Confirma tocando <strong>Añadir</strong>.</li>
+      </ol>
+    </div>
+    <button type="button" class="ios-install-banner__close" data-ios-banner-close>Cerrar</button>
+  </div>
+
+  <button type="button" class="install-btn" id="install-btn" aria-label="Instalar aplicación">
+    Instalar app
+  </button>
 
   <a href="#" class="fab-whatsapp" id="fab-whatsapp" aria-label="Consultar por WhatsApp">
     <span aria-hidden="true">WhatsApp</span>
@@ -104,5 +120,6 @@
 
   <script src="js/datos.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/pwa.js"></script>
 </body>
 </html>

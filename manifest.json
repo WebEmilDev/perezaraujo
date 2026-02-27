@@ -2,7 +2,7 @@
   "name": "Inmobiliaria Pérez Araujo",
   "short_name": "Pérez Araujo",
   "description": "Venta y arriendo de inmuebles por ciudad y municipio.",
-  "start_url": "index.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
@@ -12,12 +12,14 @@
     {
       "src": "image/logo/PerezAraujoLogo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "image/logo/PerezAraujoLogo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
